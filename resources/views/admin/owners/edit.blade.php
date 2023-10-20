@@ -1,9 +1,4 @@
-     <div class="flex flex-col text-center w-full mb-12">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">オーナー情報編集</h1>
-                      </div>
-                      <div class="lg:w-1/2 md:w-2/3 mx-auto">
-                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                  <x-app-layout>
+<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             オーナー情報編集
@@ -17,7 +12,12 @@
 
                   <section class="text-gray-600 body-font relative">
                     <div class="container md:px-5 mx-auto">
-                       <form action="{{ route('admin.owners.update', ['owner' => $owner->id])}}" method="POST">
+                      <div class="flex flex-col text-center w-full mb-12">
+                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">オーナー情報編集</h1>
+                      </div>
+                      <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        <form action="{{ route('admin.owners.update', ['owner' => $owner->id])}}" method="POST">
                           @method('put')
                           @csrf
                           <div class="-m-2">
