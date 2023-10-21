@@ -37,7 +37,6 @@ class ShopController extends Controller
 
     public function index()
     {
-        
         //$ownerId = Auth::id();
         $shops = Shop::where('owner_id', Auth::id())->get();
 
@@ -56,11 +55,10 @@ class ShopController extends Controller
 
     public function update(UploadImageRequest $request, $id)
     {
-        $imageFile = $request->image; 
-        if(!is_null($imageFile) && $imageFile->isValid()) {
-            $fileNameToStore = ImageService::upload($imageFile, 'shops');
+        $imageFile = $request->image; //一時保存
+         if(!is_null($imageFile) && $imageFile->isValid() ){
+            Storage::putFile('public/shops', $imageFile);
         }
-
         return redirect()->route('owner.shops.index');
     }
 }
