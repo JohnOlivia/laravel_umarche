@@ -36,4 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// routes/web.php などのルートファイルでルートを定義
+Route::get('/owner/images', 'ImageController@index')->name('owner.images.index');
+
 require __DIR__.'/auth.php';

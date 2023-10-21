@@ -40,7 +40,7 @@ Route::prefix('expired-owners')->
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
-})->middleware(['auth:admin', 'verified'])->name('dashboard');
+})->middleware(['auth:admin'])->name('dashboard');
 
 
 
